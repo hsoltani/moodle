@@ -90,13 +90,6 @@ questions:
   label: External Database username
   show_if: "mariadb.enabled=false"
   group: "Database Settings"
-- variable: externalDatabase.password
-  default: ""
-  description: "External database password"
-  type: password
-  label: External Database password
-  show_if: "mariadb.enabled=false"
-  group: "Database Settings"
 - variable: externalDatabase.database
   default: ""
   description: "Name of the existing database"
