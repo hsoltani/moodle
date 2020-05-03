@@ -139,28 +139,28 @@ questions:
     label: Default StorageClass for MariaDB
 - variable: persistence.enabled
   default: false
-  description: "Enable persistent volume for Joomla"
+  description: "Enable persistent volume for Moodle"
   type: boolean
   required: true
-  label: Joomla Persistent Volume Enabled
+  label: Moodle Persistent Volume Enabled
   show_subquestion_if: true
-  group: "Joomla Settings"
+  group: "Moodle Settings"
   subquestions:
   - variable: persistence.size
     default: "10Gi"
-    description: "Joomla Persistent Volume Size"
+    description: "Moodle Persistent Volume Size"
     type: string
-    label: Joomla Volume Size
+    label: Moodle Volume Size
   - variable: persistence.storageClass
     default: ""
     description: "If undefined or null, uses the default StorageClass. Default to null"
     type: storageclass
-    label: Default StorageClass for Joomla
+    label: Default StorageClass for Moodle
   - variable: persistence.existingClaim
     default: ""
     description: "If not empty, uses the specified existing PVC instead of creating new one"
     type: pvc
-    label: Existing Persistent Volume Claim for Joomla
+    label: Existing Persistent Volume Claim for Moodle
 - variable: ingress.enabled
   default: true
   description: "Expose app using Layer 7 Load Balancer - ingress"
@@ -171,13 +171,13 @@ questions:
   subquestions:
   - variable: ingress.hosts[0].name
     default: "xip.io"
-    description: "Hostname to your Joomla installation"
+    description: "Hostname to your Moodle installation"
     type: hostname
     required: true
     label: Hostname
 - variable: service.type
   default: "NodePort"
-  description: "Joomla Service type"
+  description: "Moodle Service type"
   type: enum
   show_if: "ingress.enabled=false"
   options:
@@ -185,7 +185,7 @@ questions:
   - "NodePort"
   - "LoadBalancer"
   required: true
-  label: Joomla Service Type
+  label: Moodle Service Type
   show_subquestion_if: "NodePort"
   group: "Services and Load Balancing"
   subquestions:
