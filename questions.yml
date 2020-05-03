@@ -14,13 +14,13 @@ questions:
   group: "Container Images"
   subquestions:
   - variable: image.repository
-    default: "bitnami/joomla"
-    description: "joomla image name"
+    default: "bitnami/moodle"
+    description: "Moodle image name"
     type: string
-    label: Joomla Image Name
+    label: Moodle Image Name
   - variable: image.tag
-    default: "3.9.15-debian-10-r10"
-    description: "Joomla image tag"
+    default: "3.8.2-debian-10-r41"
+    description: "Moodle image tag"
     type: string
     label: Image Tag
   - variable: mariadb.image.repository
@@ -33,26 +33,26 @@ questions:
     description: "MariaDB image tag"
     type: string
     label: MariaDB Image Tag
-- variable: joomlaUsername
+- variable: moodleUsername
   default: "user"
   description: "User of the application"
   type: string
   required: true
-  label: Joomla Usernname
-  group: "Joomla Settings"
-- variable: joomlaPassword
+  label: Moodle Usernname
+  group: "Moodle Settings"
+- variable: moodlePassword
   default: ""
   description: "password will be auto-generated if not specified"
   type: password
-  label: Joomla Password
-  group: "Joomla Settings"
-- variable: joomlaEmail
+  label: Moodle Password
+  group: "Moodle Settings"
+- variable: moodleEmail
   default: "user@example.com"
   description: "Admin email"
   type: string
   required: true
-  label: Joomla Admin Email
-  group: "Joomla Settings"
+  label: Moodle Admin Email
+  group: "Moodle Settings"
 - variable: mariadb.enabled
   default: true
   description: "Deploy a database server as part of this deployment, or set to false and configure an external database connection."
@@ -63,12 +63,12 @@ questions:
   group: "Database Settings"
   subquestions:
   - variable: mariadb.db.name
-    default: "joomla"
+    default: "bitnami_moodle"
     description: "Database name to create"
     type: string
     label: MariaDB Database
   - variable: mariadb.db.user
-    default: "joomla"
+    default: "bn_moodle"
     description: "Database user to create"
     type: string
     label: MariaDB User
@@ -169,7 +169,7 @@ questions:
   show_subquestion_if: true
   group: "Services and Load Balancing"
   subquestions:
-  - variable: ingress.hostname
+  - variable: ingress.hosts[0].name
     default: "xip.io"
     description: "Hostname to your Joomla installation"
     type: hostname
